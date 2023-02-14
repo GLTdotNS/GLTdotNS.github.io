@@ -11,6 +11,9 @@ body {
   box-sizing: border-box;
   background-color: whitesmoke;
 }
+#navbar {
+  font-size: 20px;
+}
 section {
   background-color: #212529 !important;
   padding: 2%;
@@ -362,6 +365,12 @@ p {
     margin-bottom: 10px;
   }
 }
+.active-link {
+  background-color: white !important;
+}
+.mywork {
+  background-color: #2f302f !important;
+}
 .section_our_solution .row {
   align-items: center;
 }
@@ -377,12 +386,11 @@ p {
   justify-content: center;
 }
 .solution_cards_box .solution_card {
-  flex: 0 50%;
+  flex: 50% 50%;
 
-  box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
-    0 5px 15px 0 rgba(37, 44, 97, 0.15);
+  box-shadow: inset 5px 5px 8px #000, inset -2px -2px 4px #636363;
   border-radius: 15px;
-  margin: 8px;
+  margin: 15px;
   padding: 10px 15px;
   position: relative;
   z-index: 1;
@@ -394,30 +402,29 @@ p {
 .solution_cards_box .solution_card:hover {
   background: #000324;
   color: #fff;
-  transform: scale(1.1);
+  transform: scale(1.01);
   z-index: 9;
 }
 
 .solution_cards_box .solution_card:hover::before {
-  background: rgb(85 108 214 / 10%);
+  background: rgb(85 108 214 / 30%);
 }
 
 .solution_cards_box .solution_card:hover .solu_title h3,
 .solution_cards_box .solution_card:hover .solu_description p {
-  color: #fff;
+  color: wheat;
 }
 
 .solution_cards_box .solution_card:before {
   content: "";
   position: absolute;
-  background: rgb(85 108 214 / 5%);
+  background: rgb(85 108 214 / 0%);
   width: 170px;
   height: 400px;
   z-index: -1;
-  transform: rotate(42deg);
+  transform: rotate(30deg);
   right: -56px;
   top: -23px;
-  border-radius: 35px;
 }
 
 .solution_cards_box .solution_card:hover .solu_description button {
@@ -426,7 +433,7 @@ p {
 }
 
 .solution_card .solu_title h3 {
-  color: #212121;
+  color: white;
   font-size: 1.3rem;
   margin-top: 13px;
   margin-bottom: 13px;

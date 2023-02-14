@@ -19,41 +19,36 @@
     <title>TONKOFF</title>
   </head>
   <script>
-    const changeIcon = () => {
-      const btn = document.getElementById("collapseButton");
-      btn.addEventListener("click", () => {
-        if (btn.innerHTML === `<span class="navbar-toggler-icon"></span>`) {
-          alert();
-        }
+    const active = () => {
+      const callToActionBtns = document.querySelectorAll(".nav-link");
+      callToActionBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          callToActionBtns.forEach((f) => f.classList.remove("active-link"));
+          e.target.classList.toggle("active-link");
+        });
       });
     };
   </script>
-  <body>
-    <nav class="navbar bg-dark navbar-dark">
-      <button
-        id="collapseButton"
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#colNav"
-        onclick="changeIcon()"
+  <body onload="active()">
+    <nav>
+      <ul
+        class="nav nav-tabs bg-dark fixed-top text-white justify-content-center"
+        id="navbar"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="colNav">
-        <ul class="navbar-nav bg-dark">
-          <li class="nav-item">
-            <a class="nav-link" href="#journey"> JOURNEY </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#mywork">MY WORK</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=""> CONTACTS </a>
-          </li>
-        </ul>
-      </div>
+      <li class="nav-item">
+        <a class="nav-link active-link" href="#">About</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#journey">Journey</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#mywork">My work</a>
+        </li>
+     
+      </ul>
     </nav>
+
     <div
       class="container"
       data-bs-animation="slide-right"
@@ -65,7 +60,7 @@
         >
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 class="display-4 fw-bold lh-1">Hi , i am Georgi Tonkov</h1>
-            <p>
+            <p class="text-dark">
               I am an enthusiastic , responsible and hard working person and I
               always have been up to date with technologies and I believe that I
               have good computer literacy and my level in English allows me to
@@ -87,7 +82,7 @@
           <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <img
               class="rounded-lg-3"
-              src="https://picsum.photos/seed/picsum/200/300"
+              src="./assets//img/me.jpg"
               alt=""
               height="400"
               width="720"
@@ -116,10 +111,21 @@
             <div class="timeline-content">
               <h5 class="title">Software University</h5>
               <p class="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                efficitur ex sit amet massa scelerisque scelerisque. Aliquam
-                erat volutpat. Aenean interdum finibus efficitur. Praesent
-                dapibus dolor felis, eu ultrices elit molestie.
+                <ul>
+                  <li>
+                    C#
+                  </li>
+                  <li>
+                    Basic programming concepts
+                  </li>
+                  <li>
+                    OOP
+                  </li>
+                  <li>
+                    Design patterns
+                  </li>
+
+                </ul>
               </p>
             </div>
           </div>
@@ -176,8 +182,9 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="mywork">
       <div class="section_our_solution" id="mywork">
+        <h2 class="text-white text-center">My work</h2>
         <div class="" style="margin-top: 5%">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="our_solution_category">
@@ -197,9 +204,8 @@
                   </div>
                   <div class="solu_description">
                     <p>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout.
+                      E-commerce site built with NextJS , pure CSS.
+                      Pay with Stripe.
                     </p>
                     <button type="button" class="read_more_btn">Demo</button>
                     <button type="button" class="read_more_btn">Code</button>
@@ -219,13 +225,13 @@
                     <h3>My Blog</h3>
                   </div>
                   <div class="solu_description">
-                    <p>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout.
-                    </p>
-                    <button type="button" class="read_more_btn">Visit</button>
-                    <button type="button" class="read_more_btn">Code</button>
+                    <p>My own blog. Built with NextJS 13 , pure CSS/SCCS</p>
+                    <button type="button" class="read_more_btn">
+                      <a href="https://www.noncreativeblog.net/blog">Visit</a>
+                    </button>
+                    <button type="button" class="read_more_btn">
+                      <a href="https://github.com/GLTdotNS/MyBlog">Code</a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -274,9 +280,8 @@
                   </div>
                   <div class="solu_description">
                     <p>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout.
+                        Differnt problems solved.
+                        Using Python , C# , Bash
                     </p>
                     <button type="button" class="read_more_btn">Code</button>
                   </div>
@@ -299,11 +304,13 @@
                   </div>
                   <div class="solu_description">
                     <p>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout.
+                      A small tool / script to allow you to access your wifi
+                      network. It aims to show the connected devices on your
+                      private network.
                     </p>
-                    <button type="button" class="read_more_btn">Code</button>
+                    <button type="button" class="read_more_btn">
+                      <a href="https://github.com/GLTdotNS/seethem">Code</a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -315,7 +322,7 @@
 
     <footer class="footer-basic bg-dark">
       <div class="social bg-dark">
-        <a href="#"
+        <a href="https://www.facebook.com/"
           ><i
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -331,7 +338,7 @@
                 d="M711.3,660,734,512H592V415.95728C592,375.46667,611.83508,336,675.43713,336H740V210s-58.59235-10-114.61078-10C508.43854,200,432,270.87982,432,399.2V512H302V660H432v357.77777a517.39619,517.39619,0,0,0,160,0V660Z"
               /></svg></i
         ></a>
-        <a href="#"
+        <a href="https://github.com/GLTdotNS"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               fill="#6563ff"
@@ -340,14 +347,15 @@
             /></svg
         ></a>
       </div>
-      <ul class="list-inline">
+      <footer>
+      <ul class="list-inline text-light">
         <li class="list-inline-item">
           <a href="https://www.noncreativeblog.net/blog">Blog</a>
         </li>
         <li class="list-inline-item">
           <a href="https://www.noncreativeblog.net/contacts">Message me</a>
         </li>
-        <li class="list-inline-item"><a href="#">About</a></li>
+       
       </ul>
       <p class="copyright">Tonkoff © 2023</p>
     </footer>
